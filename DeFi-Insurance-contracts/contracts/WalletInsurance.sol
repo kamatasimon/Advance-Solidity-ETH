@@ -4,20 +4,20 @@ pragma solidity ^0.8.19;
 // This contract provides a simplistic model for wallet insurance, allowing users to insure their wallets for a specified amount and duration.
 contract WalletInsurance {
     // Public state variables
-    address public owner;             // Owner of the insurance contract, typically the entity offering the insurance.
-    uint256 public insuredAmount;     // The amount for which the wallet is insured.
-    uint256 public tokensIssued;      // The number of tokens issued as part of the insurance policy.
-    bool public isInsured;            // Flag indicating whether the wallet is currently insured.
-    uint256 public insuranceExpiry;   // Timestamp indicating when the current insurance policy expires.
+    address public owner;             
+    uint256 public insuredAmount;     
+    uint256 public tokensIssued;      
+    bool public isInsured;            
+    uint256 public insuranceExpiry;   
 
     // Constants for insurance policy terms
     uint256 private constant BASIC_INSURANCE_DURATION = 90 days;
     uint256 private constant BASIC_POLICY_RATE = 4;
-    uint256 private constant BASIC_POLICY = 1e9; // Represents the token amount for basic insurance.
+    uint256 private constant BASIC_POLICY = 1e9; 
 
     uint256 private constant STANDARD_INSURANCE_DURATION = 180 days;
     uint256 private constant STANDARD_POLICY_RATE = 9;
-    uint256 private constant STANDARD_POLICY = 1e8; // Represents the token amount for standard insurance.
+    uint256 private constant STANDARD_POLICY = 1e8; 
 
     // Mapping to track Ether balances and token balances of insured parties.
     mapping(address => uint256) public balances;

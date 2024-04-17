@@ -1,25 +1,25 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-// Implements a contract for managing collateral-protected loans with basic and premium plans.
+// Contract for managing collateral-protected loans with basic and premium plans.
 contract CollateralProtection {
-    // The Ethereum address of the contract owner, initialized at deployment.
+    // The address of the contract owner, initialized at deployment.
     address public owner;
 
     // Constants defining loan plan parameters for easy reference and maintenance.
-    uint256 private constant BASIC_PLAN_AMOUNT = 1 ether;
+    uint256 private constant BASIC_PLAN_AMOUNT = 5 ether;
     uint256 private constant BASIC_PLAN_DURATION = 90 days;
-    uint256 private constant PREMIUM_PLAN_AMOUNT = 2 ether;
+    uint256 private constant PREMIUM_PLAN_AMOUNT = 10 ether;
     uint256 private constant PREMIUM_PLAN_DURATION = 180 days;
 
     // Defines a loan policy structure to encapsulate loan terms and state.
     struct LoanPolicy {
-        uint256 amount;               // The principal amount of the loan.
-        uint256 collateralThreshold;  // Minimum required collateral for the loan.
-        uint256 duration;             // Loan duration from the time of issuance.
-        uint256 owed;                 // Total amount owed, including interest.
-        uint256 walletBalance;        // Current balance held in the wallet for this loan.
-        bool isPaid;                  // Flag indicating whether the loan has been fully repaid.
+        uint256 amount;               
+        uint256 collateralThreshold;  
+        uint256 duration;             
+        uint256 owed;                 
+        uint256 walletBalance;        
+        bool isPaid;                  
     }
 
     // Maps borrower addresses to their collateral amounts to track collateralized assets.
