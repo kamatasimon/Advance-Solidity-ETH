@@ -8,8 +8,8 @@ contract StorageVictim {
 
     // Defines a structure to hold user-specific storage data.
     struct Storage {
-        address user;  // The address of the user who stored the information.
-        uint256 amount;  // The amount of value or information stored by the user.
+        address user;  
+        uint256 amount;  
     }
 
     // Mapping to associate user addresses with their respective storage data.
@@ -22,16 +22,16 @@ contract StorageVictim {
 
     // Allows users to store an amount associated with their address.
     function store(uint256 _amount) public {
-        Storage memory str;  // Initializes a temporary Storage struct.
-        str.user = msg.sender;  // Assigns the caller's address to the struct.
-        str.amount = _amount;  // Assigns the provided amount to the struct.
-        storages[msg.sender] = str;  // Maps the caller's address to the constructed Storage struct.
+        Storage memory str;  
+        str.user = msg.sender;  
+        str.amount = _amount;  
+        storages[msg.sender] = str;  
     }
 
     // Retrieves the stored data for the caller, returning the user's address and stored amount.
     function getStore() public view returns (address, uint256) {
-        Storage memory str = storages[msg.sender];  // Fetches the caller's Storage struct from the mapping.
-        return (str.user, str.amount);  // Returns the user's address and stored amount.
+        Storage memory str = storages[msg.sender];  
+        return (str.user, str.amount);  
     }
 
     // Returns the contract owner's address.
