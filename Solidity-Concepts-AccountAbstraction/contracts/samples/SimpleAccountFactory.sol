@@ -13,19 +13,38 @@ import "./SimpleAccount.sol";
  * This way, the entryPoint.getSenderAddress() can be called either before or after the account is created.
  */
 contract SimpleAccountFactory {
-    SimpleAccount public immutable accountImplementation;
-    mapping(address => uint) private balance;
+    address public accountImplementation; // Declare accountImplementation
+    mapping(address => uint) public balance; // Declare balance mapping
 
-    constructor(IEntryPoint _entryPoint) {
-        accountImplementation = new SimpleAccount(_entryPoint);
+    constructor(address _accountImplementation) {
+        accountImplementation = _accountImplementation; // Initialize accountImplementation
     }
 
-    /**
-     * Create an account and return its address.
-     * Returns the address even if the account is already deployed.
-     * Note that during UserOperation execution, this method is called only if the account is not deployed.
-     * This method returns an existing account address so that entryPoint.getSenderAddress() would work even after account creation.
-     */
+    function deposit(address account) public payable {
+        balance[account] += msg.value; // Now 'balance' is declared
+    }
+
+    function getBalance(address account) public view returns (uint) {
+        return balance[account]; // 'balance' is correctly used here
+    }
+
+    function someFunction(address newaddress) public {
+        // Example of correctly encoding with a declared variable
+        bytes memory data = abi.encode(address(accountImplementation), abi.encodeWithSignature("initialize(address)", newaddress));
+    }
+}
+
+/*
+contract SimpleAccountFactory {
+    address public admin;
+
+    constructor(address _admin) {
+        admin = _admin;
+    }
+    
+
+
+    
     function createAccount(address owner, uint256 salt) public returns (SimpleAccount) {
         address addr = getCreatedAddress(owner, salt);
         uint256 codeSize = addr.code.length;
@@ -41,16 +60,11 @@ contract SimpleAccountFactory {
     }
 
     
-    /**
-     * Add funds to a wallet.
-     */
+ 
     function fundWallet(address account) public payable {
         balance[account] += msg.value;
     }
 
-    /**
-     * Calculate the counterfactual address of this account as it would be returned by createAccount().
-     */
     function getCreatedAddress(address newaddress, uint256  newsalt) public view returns (address) {
         return Create2.computeAddress(
             bytes32(newsalt),
@@ -64,10 +78,8 @@ contract SimpleAccountFactory {
     }
 
 
-    /**
-     * Get the balance of a wallet.
-     */
     function balanceOf(address account) public view returns (uint256) {
         return balance[account];
     }
-}
+}    
+*/

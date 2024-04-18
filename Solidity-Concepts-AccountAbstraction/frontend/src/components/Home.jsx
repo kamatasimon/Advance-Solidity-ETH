@@ -2,7 +2,7 @@ import {useState, useEffect} from "react";
 import { ethers} from "ethers";
 import CONTRACT_ABI from '../../../artifacts/contracts/samples/SimpleAccountFactory.sol/SimpleAccountFactory.json'
 
-const CONTRACT_ADDRESS = '0xF1cAC41Ab3c919A1B2D6369DD1A3980604044408'
+const CONTRACT_ADDRESS = '0x8216025524e2dc04F747ba7B0badFe7a53Bdd757'
 
 export default function HomePage() {
     const [ethWallet, setEthWallet] = useState(undefined);
@@ -70,12 +70,15 @@ export default function HomePage() {
 
     const createAccount = async (e) => {
         e.preventDefault();
+        // eslint-disable-next-line no-undef
         if (!address || !maggi) return;
         try {
     
             if (typeof ethereum === "undefined") return alert("Please install Metamask");
             
+            // eslint-disable-next-line no-undef
             console.log(address, maggi)
+            // eslint-disable-next-line no-undef
             const newAccount = await contract.createAccount(address, maggi)
             console.log("newAccount ", newAccount)
             return true
@@ -142,7 +145,7 @@ export default function HomePage() {
         if (!account) {
         return (
             <button
-            className='bg-green-700 text-white py-3 px-6 rounded-lg'
+            className='bg-orange-700 text-white py-3 px-6 rounded-lg'
             onClick={connectAccount}
             >
             Please connect your Metamask wallet
@@ -159,13 +162,13 @@ export default function HomePage() {
                     >
                         <div className="mb-4">
                             <h4 className="text-2xl font-bold">Create an Address</h4>
-                            <label htmlFor="address" className="text-md font-semibold text-green-700 mb-2">
+                            <label htmlFor="address" className="text-md font-semibold text-orange-700 mb-2">
                                 Address
                             </label>
                             <input
                                 type="text"
                                 id="address"
-                                className="border border-green-300 rounded-md w-full py-2 px-3"
+                                className="border border-orange-300 rounded-md w-full py-2 px-3"
                                 placeholder="Address"
                                 value={address}
                                 onChange={(e) => setAddress(e.target.value)}
@@ -173,13 +176,13 @@ export default function HomePage() {
                             />
                         </div>
                         <div className="mb-4">
-                            <label htmlFor="maggi" className="text-md font-semibold text-green-700 mb-2">
+                            <label htmlFor="maggi" className="text-md font-semibold text-orange-700 mb-2">
                                 Maggi
                             </label>
                             <input
                                 type="text"
                                 id="maggi"
-                                className="border border-green-300 rounded-md w-full py-2 px-3"
+                                className="border border-orange-300 rounded-md w-full py-2 px-3"
                                 placeholder="Maggi"
                                 value={salt}
                                 onChange={(e) => setSalt(e.target.value)}
@@ -188,7 +191,7 @@ export default function HomePage() {
                         </div>
                         <button
                         type="submit"
-                        className="flex bg-green-500 text-white py-2 px-4 rounded-md justify-center items-center hover:bg-green-600 transition-colors"
+                        className="flex bg-orange-500 text-white py-2 px-4 rounded-md justify-center items-center hover:bg-green-600 transition-colors"
                         >
                         Submit
                         </button>
@@ -202,13 +205,13 @@ export default function HomePage() {
                     >
                         <div className="mb-4">
                         <h4 className="text-2xl font-bold">Show Address</h4>
-                        <label htmlFor="newaddress" className="text-md font-semibold text-green-700 mb-2">
+                        <label htmlFor="newaddress" className="text-md font-semibold text-orange-700 mb-2">
                             Address
                         </label>
                         <input
                             type="text"
                             id="newaddress"
-                            className="border border-green-300 rounded-md w-full py-2 px-3"
+                            className="border border-orange-300 rounded-md w-full py-2 px-3"
                             placeholder="Address"
                             value={newaddress}
                             onChange={(e) => setNewAddress(e.target.value)}
@@ -216,14 +219,15 @@ export default function HomePage() {
                         />
                         </div>
                         <div className="mb-4">
-                        <label htmlFor="newmaggi" className="text-md font-semibold text-green-700 mb-2">
+                        <label htmlFor="newmaggi" className="text-md font-semibold text-orange-700 mb-2">
                             Maggi
                         </label>
                         <input
                             type="number"
                             id="newmaggi"
-                            className="border border-green-300 rounded-md w-full py-2 px-3"
+                            className="border border-orange-300 rounded-md w-full py-2 px-3"
                             placeholder="Maggi"
+                            // eslint-disable-next-line no-undef
                             value={newmaggi}
                             onChange={(e) => setNewSalt(e.target.value)}
                             required
@@ -231,7 +235,7 @@ export default function HomePage() {
                         </div>
                         <button
                         type="submit"
-                        className="flex bg-green-500 text-white py-2 px-4 rounded-md justify-center items-center hover:bg-green-600 transition-colors"
+                        className="flex bg-orange-500 text-white py-2 px-4 rounded-md justify-center items-center hover:bg-green-600 transition-colors"
                         >
                         Submit
                         </button>
@@ -245,13 +249,13 @@ export default function HomePage() {
                     >
                         <h4 className="text-2xl font-bold">Fund Wallet</h4>
                         <div className="mb-4">
-                        <label htmlFor="account" className="text-md font-semibold text-green-700 mb-2">
+                        <label htmlFor="account" className="text-md font-semibold text-orange-700 mb-2">
                             Account
                         </label>
                         <input
                             type="text"
                             id="account"
-                            className="border border-green-300 rounded-md w-full py-2 px-3"
+                            className="border border-orange-300 rounded-md w-full py-2 px-3"
                             placeholder="Account"
                             value={accountAddress}
                             onChange={(e) => setAccountAddress(e.target.value)}
@@ -259,13 +263,13 @@ export default function HomePage() {
                         />
                         </div>
                         <div className="mb-4">
-                        <label htmlFor="amount" className="text-md font-semibold text-green-700 mb-2">
+                        <label htmlFor="amount" className="text-md font-semibold text-orange-700 mb-2">
                             Amount
                         </label>
                         <input
                             type="number"
                             id="amount"
-                            className="border border-green-300 rounded-md w-full py-2 px-3"
+                            className="border border-orange-300 rounded-md w-full py-2 px-3"
                             placeholder="Amount"
                             value={amount}
                             onChange={(e) => setAmount(e.target.value)}
@@ -274,7 +278,7 @@ export default function HomePage() {
                         </div>
                         <button
                         type="submit"
-                        className="flex bg-green-500 text-white py-2 px-4 rounded-md justify-center items-center hover:bg-green-600 transition-colors"
+                        className="flex bg-orange-500 text-white py-2 px-4 rounded-md justify-center items-center hover:bg-green-600 transition-colors"
                         >
                         Submit
                         </button>
@@ -288,13 +292,13 @@ export default function HomePage() {
                     >
                         <h4 className="text-2xl font-bold">Show Wallet Balance</h4>
                         <div className="mb-4">
-                        <label htmlFor="balance" className="text-md font-semibold text-green-700 mb-2">
+                        <label htmlFor="balance" className="text-md font-semibold text-orange-700 mb-2">
                             Account
                         </label>
                         <input
                             type="text"
                             id="balance"
-                            className="border border-green-300 rounded-md w-full py-2 px-3"
+                            className="border border-orange-300 rounded-md w-full py-2 px-3"
                             placeholder="Account"
                             value={balance}
                             onChange={(e) => setBalance(e.target.value)}
@@ -304,7 +308,7 @@ export default function HomePage() {
                         <button
                         type="submit"
                     onClick={balanceOf}
-                        className="flex bg-green-500 text-white py-2 px-4 rounded-md justify-center items-center hover:bg-green-600 transition-colors"
+                        className="flex bg-orange-500 text-white py-2 px-4 rounded-md justify-center items-center hover:bg-green-600 transition-colors"
                         >
                         Submit
                         </button>

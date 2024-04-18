@@ -23,7 +23,7 @@ Start the Frontend: In the second terminal, run the following command to start t
 ``npm run dev``
 View the Application: Open http://localhost:5173/ in your web browser to view the application. You should see the values of the functions displayed on the frontend.
 
-Connect your wallet to polygon testnet and get some ETH from  [Polygon faucet](https://mumbaifaucet.com/)
+Connect your wallet to Sepolia testnet and get some ETH from  [Sepolia faucet](https://sepoliafaucet.com/)
 
 # Simple Account Factory
 

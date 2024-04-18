@@ -9,7 +9,7 @@ const {ethereum } = window
 const contractAbi = abi.abi
 
 
-const contractAddress = "0x9976229E7F12CddE088fFbcF446556D0d2A98Cd8";
+const contractAddress = "0x8216025524e2dc04F747ba7B0badFe7a53Bdd757";
 const connectWallet = async () => {
     try {
         if (!ethereum) return alert('Wallet not found')

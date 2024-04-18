@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="flex  items-center justify-between text-white py-5 ">
         <div> 
         <div className="">
-          <h1 className="text-4xl font-bold text-black-400"> Abstract Your Accounts </h1>
+          <h1 className="text-4xl font-bold text-black-400"> Your Accounts Abstraction dApp </h1>
           <h2 className="text-2xl font-bold mt-1"> Abstraction for Smoother Contract Execution. </h2>
           <p className="text-xl mt-2 text-black-300" >Break Free from Limitations: Embrace Account Abstraction in Your Contracts.</p>
         </div>

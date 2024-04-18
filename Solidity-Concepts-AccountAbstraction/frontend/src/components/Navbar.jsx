@@ -1,19 +1,20 @@
 
 // import {Link} from 'react'
 import {HiOutlineHome} from 'react-icons/hi'
+// eslint-disable-next-line no-unused-vars
 import { useGlobalState } from './store';
 // import { connectWallet } from './Blockchains';
 
 
 const Navbar = () => {
     // const [connectedAccount] = useGlobalState('connectedAccount')
-  return <header className={`flex justify-between p-5 top-0 z-0 shadow-md left-0 right-0 fixed bg-slate-200 `}>
+  return <header className={`flex justify-between p-5 top-0 z-0 shadow-md left-0 right-0 fixed bg-orange-200 `}>
     <div className="flex  ">
         
         <div className="flex space-x-2 justify-between items-center font-light text-2l text-white">
         <a href='/'> 
-        <button className="flex space-x-2 hover:cursor-pointer bg-green-500 px-5 py-2 hover:bg-green-600
-        rounded-md shadow-md items-center shadow-green-500 hover:shadow-gray-800 leading-tight uppercase " >
+        <button className="flex space-x-2 hover:cursor-pointer bg-orange-500 px-5 py-2 hover:bg-orange-600
+        rounded-md shadow-md items-center shadow-orange-500 hover:shadow-orange-800 leading-tight uppercase " >
             <HiOutlineHome className="text-white mr-1"/>
             
              Home </button>
